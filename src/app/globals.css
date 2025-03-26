@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--background-start-rgb)),
+    rgb(var(--background-end-rgb))
+  );
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-montserrat font-bold;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 inline-block;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors duration-300 inline-block;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+}
+
+/* 3D Globe Styles */
+.globe-container {
+  @apply w-full h-full relative;
+  background: transparent;
+}
+
+.globe-container canvas {
+  @apply w-full h-full;
+}
+
+/* Globe Marker Tooltip */
+.marker-tooltip {
+  @apply bg-white p-4 rounded-lg shadow-lg max-w-xs transform transition-all duration-200 ease-in-out;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.95) translateY(10px);
+}
+
+.marker-tooltip.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.marker-tooltip h3 {
+  @apply font-bold text-lg mb-2 text-gray-900;
+}
+
+.marker-tooltip p {
+  @apply text-sm text-gray-600 leading-relaxed;
+} 
